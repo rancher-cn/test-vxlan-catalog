@@ -1,0 +1,6 @@
+vxlan:
+    image: leodotcloud/test-rancher-net-vxlan
+    ports:
+        - 4789:4789
+    labels:
+        io.rancher.scheduler.global: 'true'

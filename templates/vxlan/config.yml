@@ -1,0 +1,5 @@
+name: vxlan
+description: |
+  Vxlan Overlay networking for Rancher
+version: v1
+category: Networking

@@ -1,0 +1,4 @@
+.catalog:
+  name: "vxlan"
+  version: "v1"
+  description: "Vxlan overlay"
