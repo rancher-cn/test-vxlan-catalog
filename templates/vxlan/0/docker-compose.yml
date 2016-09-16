@@ -4,3 +4,4 @@ vxlan:
         - 4789:4789
     labels:
         io.rancher.scheduler.global: 'true'
+    privileged: true
