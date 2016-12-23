@@ -1,7 +1,0 @@
-vxlan:
-    image: leodotcloud/test-rancher-net-vxlan
-    ports:
-        - 4789:4789/udp
-    labels:
-        io.rancher.scheduler.global: 'true'
-    privileged: true
