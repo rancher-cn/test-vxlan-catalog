@@ -5,6 +5,8 @@ services:
     - NET_ADMIN
     image: leodotcloud/net:dev
     network_mode: vxlan
+    environment:
+      RANCHER_DEBUG: '${RANCHER_DEBUG}'
     command: start-vxlan.sh
     ports:
     - 4789:4789/udp
@@ -14,6 +16,7 @@ services:
     labels:
       io.rancher.sidekicks: cni-driver
       io.rancher.scheduler.global: 'true'
+      io.rancher.cni.link_mtu_overhead: '0'
       io.rancher.service.selector.link: globalvxlan=true
     logging:
       driver: json-file
@@ -23,7 +26,7 @@ services:
   cni-driver:
     privileged: true
     image: leodotcloud/net:dev
-    command: sh -c "touch /var/log/rancher-ipam.log && exec tail ---disable-inotify -F /var/log/rancher-ipam.log"
+    command: sh -c "touch /var/log/rancher-cni.log && exec tail ---disable-inotify -F /var/log/rancher-cni.log"
     network_mode: host
     pid: host
     labels:
