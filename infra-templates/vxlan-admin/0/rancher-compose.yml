@@ -23,7 +23,7 @@
       label: "Enable Debug Logs"
       description: "This will enable very verbose debug logs."
       type: "boolean"
-      default: "false"
+      default: "true"
       required: true
 
 vxlan:
