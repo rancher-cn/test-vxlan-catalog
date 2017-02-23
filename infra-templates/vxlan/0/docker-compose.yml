@@ -18,7 +18,7 @@ services:
         max-file: '2'
   cni-driver:
     privileged: true
-    image: rancher/net:v0.8.7
+    image: leodotcloud/net:flat
     command: sh -c "touch /var/log/rancher-cni.log && exec tail ---disable-inotify -F /var/log/rancher-cni.log"
     network_mode: host
     pid: host
