@@ -55,7 +55,7 @@ flat:
           type: rancher-cni-ipam
           logToFile: /var/log/rancher-cni.log
           isDebugLevel: ${RANCHER_DEBUG}
-          subnetPrefixSize: 26
+          subnetPrefixSize: "26"
           routes:
             - dst: 0.0.0.0/0
               gw: 172.22.101.1
