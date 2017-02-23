@@ -56,5 +56,5 @@ flat:
           logToFile: /var/log/rancher-cni.log
           isDebugLevel: ${RANCHER_DEBUG}
           routes:
-            - dst: 0.0.0.0/0.0.0.0
+            - dst: 0.0.0.0/32
               gw: 172.22.101.1/32
