@@ -44,7 +44,6 @@ flat:
         type: rancher-bridge
         bridge: $DOCKER_BRIDGE
         bridgeSubnet: $SUBNET
-        subnetPrefixSize: 26
         logToFile: /var/log/rancher-cni.log
         isDebugLevel: ${RANCHER_DEBUG}
         hairpinMode: true
@@ -56,6 +55,7 @@ flat:
           type: rancher-cni-ipam
           logToFile: /var/log/rancher-cni.log
           isDebugLevel: ${RANCHER_DEBUG}
+          subnetPrefixSize: 26
           routes:
             - dst: 0.0.0.0/0
               gw: 172.22.101.1
