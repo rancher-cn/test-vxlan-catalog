@@ -44,6 +44,7 @@ flat:
         type: rancher-bridge
         bridge: $DOCKER_BRIDGE
         bridgeSubnet: $SUBNET
+        subnetPrefixSize: 26
         logToFile: /var/log/rancher-cni.log
         isDebugLevel: ${RANCHER_DEBUG}
         hairpinMode: true
