@@ -17,7 +17,7 @@
       label: "Subnet"
       description: "The subnet to use for the managed network."
       type: "string"
-      default: '10.42.0.0/16'
+      default: '172.22.101.192/26'
       required: true
     - variable: "RANCHER_DEBUG"
       label: "Enable Debug Logs"
@@ -26,11 +26,11 @@
       default: "true"
       required: true
 
-vxlan:
+flat:
   network_driver:
-    name: Rancher VXLAN
+    name: Rancher Flat Networking
     default_network:
-      name: vxlan
+      name: flat
       host_ports: true
       subnets:
       - network_address: $SUBNET
@@ -39,14 +39,13 @@ vxlan:
       dns_search:
       - rancher.internal
     cni_config:
-      '10-rancher-vxlan.conf':
+      '10-rancher-flat.conf':
         name: rancher-cni-network
         type: rancher-bridge
         bridge: $DOCKER_BRIDGE
         bridgeSubnet: $SUBNET
         logToFile: /var/log/rancher-cni.log
         isDebugLevel: ${RANCHER_DEBUG}
-        isDefaultGateway: true
         hairpinMode: true
         hostNat: true
         hairpinMode: true
@@ -57,4 +56,5 @@ vxlan:
           logToFile: /var/log/rancher-cni.log
           isDebugLevel: ${RANCHER_DEBUG}
           routes:
-            - dst: 169.254.169.250/32
+            - dst: 0.0.0.0/0.0.0.0
+              gw: 172.22.101.1/32
