@@ -1,22 +1,16 @@
 version: '2'
 services:
-  vxlan:
+  flat:
     cap_add:
     - NET_ADMIN
-    image: leodotcloud/net:dev
-    network_mode: vxlan
-    environment:
-      RANCHER_DEBUG: '${RANCHER_DEBUG}'
-    command: start-vxlan.sh
-    ports:
-    - 4789:4789/udp
+    image: nginx
+    network_mode: flat
     # Force cni-driver to start first
     volumes_from:
     - cni-driver
     labels:
       io.rancher.sidekicks: cni-driver
       io.rancher.scheduler.global: 'true'
-      io.rancher.cni.link_mtu_overhead: '0'
     logging:
       driver: json-file
       options:
@@ -24,7 +18,7 @@ services:
         max-file: '2'
   cni-driver:
     privileged: true
-    image: leodotcloud/net:dev
+    image: rancher/net:v0.8.7
     command: sh -c "touch /var/log/rancher-cni.log && exec tail ---disable-inotify -F /var/log/rancher-cni.log"
     network_mode: host
     pid: host
