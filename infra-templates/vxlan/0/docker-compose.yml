@@ -3,7 +3,7 @@ services:
   flat:
     cap_add:
     - NET_ADMIN
-    image: nginx
+    image: leodotcloud/swiss-army-knife:dev
     network_mode: flat
     # Force cni-driver to start first
     volumes_from:
