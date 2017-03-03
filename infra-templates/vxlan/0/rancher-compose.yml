@@ -55,7 +55,7 @@ flat:
           type: rancher-cni-ipam
           logToFile: /var/log/rancher-cni.log
           isDebugLevel: ${RANCHER_DEBUG}
-          gateway:172.22.101.1
+          gateway: 172.22.101.1
           routes:
             - dst: 169.254.169.250/32
               gw: 172.22.101.101
