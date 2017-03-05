@@ -1,6 +1,6 @@
-name: Rancher VXLAN
+name: Rancher Flat Networking
 description: |
-  Rancher Networking plugin using VXLAN overlay.
+  Rancher Networking plugin using Flat Networking.
 version: v0.0.1
 category: Networking
 labels:
