@@ -65,4 +65,4 @@ flat:
           gateway: ${GATEWAY}
           routes:
             - dst: 169.254.169.250/32
-              gw: 172.22.101.4
+              gw: 169.254.169.252
