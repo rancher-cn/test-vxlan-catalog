@@ -18,6 +18,9 @@ services:
         max-file: '2'
   cni-driver:
     privileged: true
+    environment:
+      NIC_ON_BRIDGE: '${NIC_ON_BRIDGE}'
+      NIC_NAME: '${NIC_NAME}'
     image: leodotcloud/net:flat
     command: sh -c "touch /var/log/rancher-cni.log && exec tail ---disable-inotify -F /var/log/rancher-cni.log"
     network_mode: host
