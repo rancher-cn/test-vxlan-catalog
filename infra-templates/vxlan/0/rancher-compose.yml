@@ -17,13 +17,25 @@
       label: "Subnet"
       description: "The subnet to use for the managed network."
       type: "string"
-      default: '172.22.101.192/26'
+      default: '192.168.100.0/24'
+      required: true
+    - variable: "STARTADDR"
+      label: "IP Pool Start Address"
+      description: "The start address of the IP pool."
+      type: "string"
+      default: '192.168.100.2'
+      required: true
+    - variable: "ENDADDR"
+      label: "Subnet"
+      description: "The end address of the IP pool."
+      type: "string"
+      default: '192.168.100.100'
       required: true
     - variable: "GATEWAY"
       label: "Gateway"
       description: "Container default gateway."
       type: "string"
-      default: '172.22.101.1'
+      default: '192.168.100.1'
       required: true
     - variable: "NIC_ON_BRIDGE"
       label: "Interface card name on the bridge."
@@ -46,6 +58,8 @@ flat:
       host_ports: true
       subnets:
       - network_address: $SUBNET
+      - start_address: $STARTADDR
+      - end_address: $ENDADDR
       dns:
       - 169.254.169.250
       dns_search:
